@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - AI Video</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+.topbar{
+    background:#020617;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#3b82f6;
+}
+.user{
+    font-size:14px;
+    color:#9ca3af;
+}
+</style>
+
+</head>
+<body>
+
+<div class="topbar">
+    <div class="logo">AI VIDEO</div>
+    <div class="user">Welcome {{session.user}}</div>
+</div>
+
+<h2>Recommended For You</h2>
+
+{% for v in videos %}
+<div class="video-box">
+    <span>{{v.title}}</span>
+    <a class="watch-btn" href="/watch/{{v.cat}}">Watch</a>
+</div>
+{% endfor %}
+
+</body>
+</html>
